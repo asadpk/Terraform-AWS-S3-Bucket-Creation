@@ -1,8 +1,6 @@
 # Terraform-AWS-S3-Bucket-Creation
-
+Steps to craete s3 bucket module for hosting a static website.First step create s3 bucket
 First step create s3 bucket
-
-Steps to craete s3 bucket module for hosting a static website.
 resource "aws_s3_bucket" "s3_bucket_static_website" {
   bucket = var.bucket_name
   acl    = "public-read"
@@ -42,7 +40,7 @@ resource "aws_s3_bucket_object" "example_object_1" {
   content_type = "text/html"
 
 }
- This one is the third step. Multiple files upload.
+ This one is the third step. Multiple files uploading.
                  
                  # Multipal files form same dir upload to s3 buckt to root location.
 resource "aws_s3_bucket_object" "example_folder" {
