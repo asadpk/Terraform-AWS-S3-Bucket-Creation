@@ -37,7 +37,7 @@ resource "aws_s3_bucket_object" "example_object_1" {
 
 }
 
-# Multipal files form same dir upload to s3 buckt to root location.
+# Multiple files form same dir upload to s3 buckt to root location.
 resource "aws_s3_bucket_object" "example_folder" {
   bucket       = aws_s3_bucket.s3_bucket_static_website.id
   for_each     = fileset("E:/terraform/cloudnloud/week13-Terraform-Class6/01-static-website/modules/aws-s3-static-website-bucket", "*.html")
@@ -47,7 +47,7 @@ resource "aws_s3_bucket_object" "example_folder" {
   content_type = "text/html"
 }
 
-# Create folder for uplaoding custom files.
+# Create folder for uplaoding multiple files. This is first step.
 resource "aws_s3_object" "custom_pages" {
   bucket       = aws_s3_bucket.s3_bucket_static_website.id
   key          = "${var.custom_file}/"
@@ -56,7 +56,7 @@ resource "aws_s3_object" "custom_pages" {
 
 }
 
-# Multipal pages uplaoded to above folder name pages
+# Multipal pages uplaoded to above folder name pages. This is second step
 resource "aws_s3_bucket_object" "example_multipale_pages" {
   bucket       = aws_s3_bucket.s3_bucket_static_website.id
   for_each     = fileset("E:/terraform/cloudnloud/week13-Terraform-Class6/01-static-website/modules/aws-s3-static-website-bucket/www/pages", "*")
