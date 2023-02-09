@@ -1,4 +1,6 @@
-# Terraform-AWS-S3-Bucket-Creation and uplaod a static website single and multiple files and folders using s3 object.
+# Terraform-AWS-S3-Bucket-Creation and enable static website.
+# Create s3 object resources for upload single, multiple files and folders.
+
 
 # Terraform-AWS-S3-Bucket-Creation
 Steps to craete s3 bucket module for hosting a static website.First step create s3 bucket
@@ -31,7 +33,8 @@ EOF
   }
   tags = var.tags
 }
- This one is the second  step for creating s3 object for uploading a file.                
+               
+     #This one is the second  step for creating s3 object for uploading a file.                
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object#content_type
 # Sigle file uplaod on above s3 bucket to root location
 resource "aws_s3_bucket_object" "example_object_1" {
@@ -42,7 +45,7 @@ resource "aws_s3_bucket_object" "example_object_1" {
   content_type = "text/html"
 
 }
- This one is the third step. Multiple files uploading.
+# This one is the third step. Multiple files uploading.
                  
                  # Multipal files form same dir upload to s3 buckt to root location.
 resource "aws_s3_bucket_object" "example_folder" {
@@ -54,7 +57,7 @@ resource "aws_s3_bucket_object" "example_folder" {
   content_type = "text/html"
 }
                  
-This one is the fourth step. Create folder and then upload  files in that folder from desktop to s3 bucket.
+#This one is the fourth step. Create folder and then upload  files in that folder from desktop to s3 bucket.
   # Create folder for uplaoding custom files.
 resource "aws_s3_object" "custom_pages" {
   bucket       = aws_s3_bucket.s3_bucket_static_website.id
