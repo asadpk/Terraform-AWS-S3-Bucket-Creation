@@ -74,6 +74,12 @@ resource "aws_s3_bucket_object" "example_multipale_pages" {
   content_type = "text/html"
 }               
 
-All the variables decleard are present in variavles.tf file.
-For learning please create s3 bucket resource first then commnet all the s3 objects and uncomment one by one 
+All the variables decleard are present in variables.tf file.
+For learning please create s3 bucket resource first then commnet all the s3 objects and uncomment one by one.
+Run below commands in terminal fot each resource seperately.
+terraform fmt
+terraform validate
+terraform plan
+terraform apply
+
                  
