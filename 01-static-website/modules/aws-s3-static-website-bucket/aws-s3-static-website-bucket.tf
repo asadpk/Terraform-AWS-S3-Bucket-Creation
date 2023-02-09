@@ -56,7 +56,7 @@ resource "aws_s3_object" "custom_pages" {
 
 }
 
-# Multipal pages uplaoded to above folder name pages. This is second step
+# Multiple pages uplaoded to above folder name pages. This is second step
 resource "aws_s3_bucket_object" "example_multipale_pages" {
   bucket       = aws_s3_bucket.s3_bucket_static_website.id
   for_each     = fileset("E:/terraform/cloudnloud/week13-Terraform-Class6/01-static-website/modules/aws-s3-static-website-bucket/www/pages", "*")
